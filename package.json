@@ -2,13 +2,16 @@
   "name": "subscribble",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "main.js",
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
+    "build": "ng build",
     "start": "ng serve",
     "test": "ng test",
     "pree2e": "webdriver-manager update --standalone false --gecko false",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "electron": "electron ."
   },
   "private": true,
   "dependencies": {
@@ -21,6 +24,8 @@
     "@angular/platform-browser-dynamic": "^2.3.1",
     "@angular/router": "^3.3.1",
     "core-js": "^2.4.1",
+    "dotenv": "^4.0.0",
+    "menubar": "^5.2.3",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.7.2"
@@ -31,6 +36,7 @@
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
     "codelyzer": "~2.0.0-beta.1",
+    "electron": "^1.4.15",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",
