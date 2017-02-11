@@ -1,0 +1,14 @@
+$spinkit-spinner-color: rgba(255,255,255,0.25);
+
+@import '../../../node_modules/spinkit/scss/spinners/7-three-bounce';
+
+.loading-container {
+    position: absolute;
+    top:    0;
+    bottom: 0;
+    right:  0;
+    left:   0;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}

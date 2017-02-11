@@ -1,0 +1,11 @@
+$base-color: rgb(43, 44, 50);
+$base-hue-1: lighten($base-color, 10%);
+$base-hue-2: darken($base-color, 10%);
+
+$contrast-color: rgb(220, 220, 220);
+$contrast-hue-1: ligthen($contrast-color, 20%);
+$contrast-hue-2: darken($contrast-color, 20%);
+
+$accent-color: rgb(112, 78, 222);
+$accent-hue-1: lighten($accent-color, 10%);
+$accent-hue-2: darken($accent-color, 10%)
