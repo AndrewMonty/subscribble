@@ -1,3 +1,11 @@
-<h1 class="app-title">{{ title }}</h1>
-<app-toolbar></app-toolbar>
-<router-outlet></router-outlet>
+<md-sidenav-container>
+    <md-sidenav #sidenav>
+        sidenav works!
+    </md-sidenav>
+
+    <app-toolbar></app-toolbar>
+    <button md-button (click)="sidenav.open()">
+        Open sidenav
+    </button>
+    <router-outlet></router-outlet>
+</md-sidenav-container>
