@@ -1,22 +1,45 @@
 require('dotenv').config()
-
 const path = require('path')
 const url = require('url')
-const menubar = require('menubar')
+const electron = require('electron')
 
-var options = {
-  width: 300,
-  height: 500
+const BrowserWindow = electron.BrowserWindow
+const app = electron.app
+
+let mainWindow
+
+function createMainWindow() {
+
+    mainWindow = new BrowserWindow({
+        title: process.env.APP_NAME,
+        width: 800,
+        height: 600,
+        backgroundColor: '#2d2c32'
+    })
+
+    if (process.env.ENV === 'production') {
+        mainWindow.loadURL(path.join('file://', __dirname, '/dist'))
+    } else {
+        mainWindow.loadURL(process.env.HOST)
+        mainWindow.webContents.openDevTools()
+    }
+
+    mainWindow.on('closed', function() {
+        mainWindow = null
+    })
+
 }
 
-if (process.env.ENV === 'production') {
-  options.dir = path.join(__dirname, '/dist')
-} else {
-  options.index = process.env.HOST
-}
+app.on('ready', createMainWindow)
 
-const mb = menubar(options)
+app.on('window-all-closed', function() {
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
+})
 
-mb.on('ready', function() {
-  console.log('app ready')
+app.on('activate', function() {
+    if (mainWindow === null) {
+        createMainWindow()
+    }
 })
