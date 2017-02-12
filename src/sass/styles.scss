@@ -1,6 +1,6 @@
-@import '../../node_modules/@angular/material/core/theming/prebuilt/deeppurple-amber.scss';
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 @import './mixins/_mixins';
-@import './components/_components';
 @import './variables/_variables';
+@import './layout/_layout';
+@import './components/_components';

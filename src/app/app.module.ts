@@ -5,13 +5,11 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { AppRouterModule, routingComponents } from './router/router.module';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+import { AppRoutingModule, routingComponents } from './routing/app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent,
     routingComponents
   ],
   imports: [
@@ -19,7 +17,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    AppRouterModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

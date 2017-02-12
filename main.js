@@ -14,7 +14,7 @@ function createMainWindow() {
         title: process.env.APP_NAME,
         width: 800,
         height: 600,
-        backgroundColor: '#2d2c32'
+        backgroundColor: '#303030'
     })
 
     if (process.env.ENV === 'production') {
