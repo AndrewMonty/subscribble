@@ -1,0 +1,7 @@
+<div class="background-container"
+    [ngStyle]="getBackgroundStyle()">
+    <span class="title"
+        *ngIf="podcast.artwork == null">
+        {{ podcast.name }}
+    </span>
+</div>

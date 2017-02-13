@@ -1,5 +1,6 @@
 export class Podcast {
   id: number;
   name: string;
-  feed: string;
+  feed: URL;
+  artwork?: URL;
 }

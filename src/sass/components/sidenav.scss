@@ -1,8 +1,18 @@
-md-sidenav {
+#app-sidenav {
+
+  .md-sidenav-content {
+    display: flex;
+    @include flex-container(column);
+    overflow: hidden;
+  }
+
+  md-sidenav {
     a:focus {
-        outline: none;
+      outline: none;
     }
     md-icon {
-        margin-right: $spacing-comfy;
+      margin-right: $spacing-comfy;
     }
+  }
+
 }

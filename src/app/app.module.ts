@@ -6,11 +6,13 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from './routing/app-routing.module';
+import { PodcastTileComponent } from './podcast-tile/podcast-tile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    PodcastTileComponent
   ],
   imports: [
     BrowserModule,

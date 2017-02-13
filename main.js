@@ -21,7 +21,7 @@ function createMainWindow() {
         mainWindow.loadURL(path.join('file://', __dirname, '/dist'))
     } else {
         mainWindow.loadURL(process.env.HOST)
-        mainWindow.webContents.openDevTools()
+        mainWindow.webContents.openDevTools({mode: 'undocked'})
     }
 
     mainWindow.on('closed', function() {

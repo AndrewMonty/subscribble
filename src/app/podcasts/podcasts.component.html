@@ -1,5 +1,5 @@
-<md-grid-list cols="3">
+<md-grid-list cols="4" gutterSize="8">
     <md-grid-tile *ngFor="let podcast of podcasts">
-        {{ podcast.name }}
+        <app-podcast-tile [podcast]="podcast"></app-podcast-tile>
     </md-grid-tile>
 </md-grid-list>

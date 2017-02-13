@@ -1,0 +1,24 @@
+@import '../../sass/variables/_variables';
+@import '../../sass/mixins/_mixins';
+
+:host {
+  width: 100%;
+  height: 100%;
+
+  .background-container {
+    width: 100%;
+    height: 100%;
+    background-color: $accent-color;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include flex-container(column, center);
+  }
+
+  .title {
+    text-align: center;
+    padding: $spacing-default;
+    font-size: $font-size-headline;
+    font-weight: $font-weight-bold;
+  }
+}

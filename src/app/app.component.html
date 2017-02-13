@@ -1,4 +1,4 @@
-<md-sidenav-container>
+<md-sidenav-container id="app-sidenav">
     <md-sidenav #sidenav>
         <md-nav-list>
             <a md-list-item
@@ -14,6 +14,7 @@
         <button md-button md-icon-button (click)="sidenav.toggle()">
             <md-icon>menu</md-icon>
         </button>
+        {{ title }}
     </md-toolbar>
     <router-outlet></router-outlet>
 </md-sidenav-container>

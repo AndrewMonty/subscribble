@@ -1,0 +1,8 @@
+@import '../../sass/mixins/_mixins';
+@import '../../sass/variables/_variables';
+
+:host {
+  @include flex();
+  @include scrollable();
+  padding: $spacing-default;
+}

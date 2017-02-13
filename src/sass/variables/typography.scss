@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:400,500,700');
 
 $font-size-default:  16px;
-$font-size-headline: 26px;
+$font-size-headline: 22px;
 $font-size-subhead:  14px;
 
 $font-weight-normal:   400;
@@ -14,9 +14,4 @@ $font-family-accent:  'Roboto Slab';
 html, body {
     font-family: $font-family-default;
     color: $contrast-color;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: $font-family-accent;
-    color: $accent-hue-1;
 }
