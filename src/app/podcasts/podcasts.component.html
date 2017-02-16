@@ -3,9 +3,22 @@
         <md-icon>menu</md-icon>
     </button>
     {{ title }}
+    <span class="flex"></span>
+    <button md-button md-icon-button
+        [mdMenuTriggerFor]="displaymenu">
+        <md-icon>{{ display.icon }}</md-icon>
+    </button>
+    <md-menu #displaymenu="mdMenu">
+        <button md-menu-item
+            *ngFor="let option of displayOptions"
+            (click)="setDisplay(option)">
+            <md-icon>{{ option.icon }}</md-icon>
+            {{ option.label }}
+        </button>
+    </md-menu>
 </md-toolbar>
 
-<md-list *ngIf="display == 'list'">
+<md-list *ngIf="display.value == 'list'">
     <md-list-item *ngFor="let podcast of podcasts">
         <h4 md-line>{{ podcast.name }}</h4>
         <span class="flex"></span>
@@ -15,8 +28,8 @@
     </md-list-item>
 </md-list>
 
-<md-grid-list *ngIf="display == 'grid'"
-    cols="{{ columns }}" gutterSize="8">
+<md-grid-list *ngIf="display.value == 'grid'"
+    cols="{{ display.size }}" gutterSize="8">
     <md-grid-tile *ngFor="let podcast of podcasts">
         <app-podcast-tile [podcast]="podcast"></app-podcast-tile>
     </md-grid-tile>
