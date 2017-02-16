@@ -1,33 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MdSidenav } from '@angular/material';
+import { Subscription } from 'rxjs/Subscription';
+import { SidenavService } from './sidenav.service';
 import { routingLinks } from './routing/app-routing.module';
-import { Router, NavigationEnd } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [SidenavService]
 })
 export class AppComponent implements OnInit {
+
+  @ViewChild('sidenav') sidenav: MdSidenav;
   title = 'Subscribble';
-  routingLinks = routingLinks;
+  subscription: Subscription;
+  routingLinks: Array<Object>;
 
-  constructor(
-    private router: Router,
-  ) {}
-
-  ngOnInit() {
-    this.router.events.subscribe(route => {
-      if (route instanceof NavigationEnd) {
-        this.setTitle(route.url);
-      }
-    });
+  constructor( private sidenavService: SidenavService ) {
+    this.routingLinks = routingLinks;
   }
 
-  setTitle(url) {
-    this.title = this.routingLinks.find(function(el) {
-      return el.path == url;
-    }).label
+  ngOnInit() {
+    this.subscription = this.sidenavService.toggleObservable
+      .subscribe(value => this.toggleNav(value))
+  }
+
+  toggleNav(really): void {
+    if (really) {
+      this.sidenav.toggle()
+    }
   }
 
 }

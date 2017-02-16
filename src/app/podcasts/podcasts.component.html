@@ -1,4 +1,22 @@
-<md-grid-list cols="4" gutterSize="8">
+<md-toolbar>
+    <button md-button md-icon-button (click)="toggleSidenav()">
+        <md-icon>menu</md-icon>
+    </button>
+    {{ title }}
+</md-toolbar>
+
+<md-list *ngIf="display == 'list'">
+    <md-list-item *ngFor="let podcast of podcasts">
+        <h4 md-line>{{ podcast.name }}</h4>
+        <span class="flex"></span>
+        <button md-button md-icon-button>
+            <md-icon>play_circle_outline</md-icon>
+        </button>
+    </md-list-item>
+</md-list>
+
+<md-grid-list *ngIf="display == 'grid'"
+    cols="{{ columns }}" gutterSize="8">
     <md-grid-tile *ngFor="let podcast of podcasts">
         <app-podcast-tile [podcast]="podcast"></app-podcast-tile>
     </md-grid-tile>

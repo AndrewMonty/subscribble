@@ -4,5 +4,4 @@
 :host {
   @include flex();
   @include scrollable();
-  padding: $spacing-default;
 }

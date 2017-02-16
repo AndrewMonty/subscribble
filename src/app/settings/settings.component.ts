@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SidenavService } from '../sidenav.service';
 
 @Component({
   selector: 'app-settings',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsComponent implements OnInit {
 
-  constructor() { }
+  title: string = 'Settings';
 
-  ngOnInit() {
+  constructor( private sidenavService: SidenavService ) {}
+
+  ngOnInit() {}
+
+  toggleSidenav(): void {
+    this.sidenavService.toggle();
   }
 
 }
