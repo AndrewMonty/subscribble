@@ -1,3 +1,11 @@
 .flex {
   @include flex(1);
 }
+
+.layout-row {
+  @include flex-container(row);
+}
+
+.layout-column {
+  @include flex-container(column);
+}

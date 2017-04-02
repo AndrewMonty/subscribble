@@ -1,0 +1,26 @@
+<md-toolbar *ngIf="podcast">
+    <button md-button md-icon-button
+        routerLink="../">
+        <md-icon>arrow_back</md-icon>
+    </button>
+    {{ podcast.name }}
+    <span class="flex"></span>
+    <button md-button md-icon-button>
+        <md-icon>cast</md-icon>
+    </button>
+</md-toolbar>
+
+<div *ngIf="podcast" class="content">
+
+    <div class="artwork-container">
+        <img *ngIf="podcast.artwork" [src]="podcast.artwork.href">
+        <div *ngIf="!podcast.artwork" class="placeholder">
+            <div class="title">
+                {{ podcast.name }}
+            </div>
+        </div>
+    </div>
+
+    <md-list class="episode-list">
+    </md-list>
+</div>

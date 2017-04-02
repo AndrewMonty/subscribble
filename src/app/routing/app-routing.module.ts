@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SettingsComponent } from '../settings/settings.component';
-import { PodcastsComponent } from '../podcasts/podcasts.component';
+import { PodcastListComponent } from '../podcast-list/podcast-list.component';
+import { PodcastDetailComponent } from '../podcast-detail/podcast-detail.component';
 
 const routes: Routes = [
     {
@@ -15,7 +16,11 @@ const routes: Routes = [
     },
     {
         path: 'podcasts',
-        component: PodcastsComponent
+        component: PodcastListComponent
+    },
+    {
+        path: 'podcasts/:id',
+        component: PodcastDetailComponent
     }
 ]
 
@@ -29,7 +34,7 @@ const routes: Routes = [
 })
 export class AppRoutingModule {}
 
-export const routingComponents = [SettingsComponent, PodcastsComponent]
+export const routingComponents = [SettingsComponent, PodcastListComponent]
 export const routingLinks = [
     {
         path: '/settings',
