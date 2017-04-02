@@ -10,36 +10,36 @@ let mainWindow
 
 function createMainWindow() {
 
-    mainWindow = new BrowserWindow({
-        title: process.env.APP_NAME,
-        width: 800,
-        height: 600,
-        backgroundColor: '#303030'
-    })
+  mainWindow = new BrowserWindow({
+    title: process.env.APP_NAME,
+    width: 400,
+    height: 600,
+    backgroundColor: '#303030'
+  })
 
-    if (process.env.ENV === 'production') {
-        mainWindow.loadURL(path.join('file://', __dirname, '/dist'))
-    } else {
-        mainWindow.loadURL(process.env.HOST)
-        mainWindow.webContents.openDevTools({mode: 'undocked'})
-    }
+  if (process.env.ENV === 'production') {
+    mainWindow.loadURL(path.join('file://', __dirname, '/dist'))
+  } else {
+    mainWindow.loadURL(process.env.HOST)
+    mainWindow.webContents.openDevTools({mode: 'undocked'})
+  }
 
-    mainWindow.on('closed', function() {
-        mainWindow = null
-    })
+  mainWindow.on('closed', function() {
+    mainWindow = null
+  })
 
 }
 
 app.on('ready', createMainWindow)
 
 app.on('window-all-closed', function() {
-    if (process.platform !== 'darwin') {
-        app.quit()
-    }
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
 })
 
 app.on('activate', function() {
-    if (mainWindow === null) {
-        createMainWindow()
-    }
+  if (mainWindow === null) {
+    createMainWindow()
+  }
 })
