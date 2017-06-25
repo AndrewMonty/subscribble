@@ -9,6 +9,7 @@ import { AppRoutingModule, routingComponents } from './routing/app-routing.modul
 import { PodcastTileComponent } from './podcast-tile/podcast-tile.component';
 import { PodcastListComponent } from './podcast-list/podcast-list.component';
 import { PodcastDetailComponent } from './podcast-detail/podcast-detail.component';
+import { NgxElectronModule } from 'ngx-electron';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PodcastDetailComponent } from './podcast-detail/podcast-detail.componen
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    NgxElectronModule
   ],
   providers: [],
   bootstrap: [AppComponent]

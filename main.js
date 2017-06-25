@@ -1,10 +1,15 @@
 require('dotenv').config()
-const path = require('path')
-const url = require('url')
+
+const config   = require('./config.js')
+const path     = require('path')
+const url      = require('url')
 const electron = require('electron')
+const Store    = require('electron-store')
 
 const BrowserWindow = electron.BrowserWindow
-const app = electron.app
+const app           = electron.app
+const ipc           = electron.ipcMain
+const store         = new Store()
 
 let mainWindow
 
@@ -26,6 +31,18 @@ function createMainWindow() {
 
   mainWindow.on('closed', function() {
     mainWindow = null
+  })
+
+  ipc.on('store.set', function(event, args) {
+    event.sender.send('store.set', store.set(args))
+  })
+
+  ipc.on('store.get', function(event, args) {
+    var _default = null;
+    if (config.defaults.hasOwnProperty(args)) {
+      _default = config.defaults[args]
+    }
+    event.sender.send('store.get', store.get(args, _default))
   })
 
 }

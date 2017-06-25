@@ -1,4 +1,4 @@
-<md-toolbar>
+<md-toolbar *ngIf="display">
     <button md-button md-icon-button (click)="toggleSidenav()">
         <md-icon>menu</md-icon>
     </button>
@@ -18,7 +18,7 @@
     </md-menu>
 </md-toolbar>
 
-<div class="list-container">
+<div class="list-container" *ngIf="display">
     <md-nav-list *ngIf="display.value == 'list'">
         <md-list-item class="linky"
             *ngFor="let podcast of podcasts"
