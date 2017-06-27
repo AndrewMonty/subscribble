@@ -17,7 +17,7 @@ export class PodcastTileComponent implements OnInit {
     if (this.podcast.artwork == null) {
       return { 'background-color': 'blue' };
     } else {
-      return { 'background-image': 'url(' + this.podcast.artwork.href + ')' };
+      return { 'background-image': 'url(' + this.podcast.artwork + ')' };
     }
   }
 }

@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
+import { PodcastService } from './podcast.service';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from './routing/app-routing.module';
 import { PodcastTileComponent } from './podcast-tile/podcast-tile.component';
@@ -27,7 +29,9 @@ import { NgxElectronModule } from 'ngx-electron';
     AppRoutingModule,
     NgxElectronModule
   ],
-  providers: [],
+  providers: [
+    PodcastService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

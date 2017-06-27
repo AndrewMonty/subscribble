@@ -1,21 +1,36 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Podcast } from './podcast';
-import { PODCASTS } from './mock-podcasts';
+import { ElectronService } from 'ngx-electron';
 
 @Injectable()
 export class PodcastService {
 
-  constructor() { }
+  private podcasts: Podcast[];
+  private ipc;
 
-  getAll(): Promise<Podcast[]> {
-    return Promise.resolve(PODCASTS);
+  constructor(
+    private ngZone: NgZone,
+    private electronService: ElectronService
+  ) { 
+    this.ipc = this.electronService.ipcRenderer;
   }
 
-  get(id): Promise<Podcast> {
+  public getAll(): Promise<Podcast[]> {
+    return new Promise<Podcast[]>(resolve => {
+      this.ipc.on('podcasts.all', (event, data) => {
+        this.podcasts = data;
+        resolve(this.podcasts);
+      });
+      this.ipc.send('podcasts.all');
+    });
+  }
+
+  public get(id): Promise<Podcast> {
     let podcast = null;
-    for (let i = 0; i < PODCASTS.length; i++) {
-      if(PODCASTS[i].id == id) {
-        podcast = PODCASTS[i];
+    console.log(this.podcasts);
+    for (let i = 0; i < this.podcasts.length; i++) {
+      if(this.podcasts[i].id == id) {
+        podcast = this.podcasts[i];
       }
     }
     return Promise.resolve(podcast);

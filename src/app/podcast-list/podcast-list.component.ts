@@ -28,12 +28,12 @@ export class PodcastListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPodcasts();
-    this.electronService.ipcRenderer.on('store.get', (event, arg) => {
+    this.electronService.ipcRenderer.on('settings.get', (event, arg) => {
       this.ngZone.run(() => {
         this.display = arg
       })
     })
-    this.electronService.ipcRenderer.send('store.get', 'config.display')
+    this.electronService.ipcRenderer.send('settings.get', 'config.display')
   }
 
   getPodcasts(): void {
